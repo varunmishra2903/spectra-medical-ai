@@ -91,6 +91,8 @@ This file serves as the single source of truth for data handling across the team
 - DICOM format requires conversion or special loaders
 - Class imbalance present
 - Varying image resolutions
+- Some DICOM files require windowing normalization before visualization
+
 
 ### Usage
 - Used by **M3** for CNN/DenseNet-based classification
@@ -135,6 +137,8 @@ This file serves as the single source of truth for data handling across the team
 - Labels are study-level, not image-level
 - Multiple views per study
 - Requires aggregation logic
+- Class imbalance between fracture and non-fracture studies
+
 
 ### Usage
 - Used by **M3** for fracture detection models
@@ -152,6 +156,8 @@ This file serves as the single source of truth for data handling across the team
 ### Purpose
 - Lightweight modality classification (Gatekeeper)
 - Routes input images to the correct specialist model
+- This dataset is not used for diagnosis, only for safe model routing
+
 
 ### Local Storage
 - Generated dynamically via script

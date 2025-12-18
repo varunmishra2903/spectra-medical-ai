@@ -6,9 +6,9 @@ def countfiles(root):
         total += len([f for f in files if not f.startswith(".")])
     return total
 
-BASE = r"C:\Users\delta\OneDrive\Desktop\MedicalAI-App\data"  # ← CHANGE THIS
+BASE = r"C:\Users\delta\DATASETS\SPECTRA"  # ← CHANGE THIS
 
-for ds in ["brain", "rsna", "mura"]:
+for ds in ["brats", "rsna", "mura"]:
     path = os.path.join(BASE, ds)
     if os.path.exists(path):
         print(ds, ":", countfiles(path))
