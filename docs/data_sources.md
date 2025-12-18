@@ -1,132 +1,163 @@
 # Data Sources & Licensing — SPECTRA Medical AI
 
-This document provides the authoritative list of datasets used in the SPECTRA medical imaging system.  
-All datasets are used strictly for academic, research, and educational purposes as part of the  
-6th semester mini-project.
+This document provides the authoritative list of datasets used in the SPECTRA medical imaging system. All datasets are used strictly for academic, research, and educational purposes as part of the 6th semester mini-project.
 
-No raw medical data is stored in the repository. Only lightweight, derived samples  
-(e.g., MedMNIST gatekeeper data) are included.
+No raw medical data is stored in the repository. Only lightweight, derived samples (e.g., MedMNIST gatekeeper data) are included.
 
 ---
 
-# 1. Brain Tumor Segmentation (BraTS 2021)
+# 💻 How to Download All Required Datasets
 
-### Official Source
-MICCAI BraTS Challenge  
-https://www.med.upenn.edu/cbica/brats2021/data.html
+Below are the **exact terminal commands** used to download and prepare the datasets. Team members must use the **same commands** to ensure consistent folder structure.
 
-### Usage in SPECTRA
-- Used by the **Brain Imaging Pipeline**  
-- Enables tumor detection, segmentation, and measurement  
-- Provides multi-modal MRI scans: T1, T1CE, T2, FLAIR + segmentation mask
+All datasets were downloaded using **Kaggle CLI** or script-driven APIs.
 
-### License & Restrictions
-- **Research Use Only**  
-- Academic projects: ✔ Allowed  
-- Redistribution: ❌ Not allowed  
-- Commercial use: ❌ Not allowed  
+Before running anything:
 
-### Required Citation
-> Menze et al., The Multimodal Brain Tumor Image Segmentation Benchmark (BRATS), IEEE TMI.
-
-### Notes
-- All raw `.nii.gz` files remain stored locally on each team member’s device.  
-- Only processed masks and visualizations may appear in the repo.
+```bash
+pip install kaggle
+mkdir ~/.kaggle
+# Place kaggle.json inside ~/.kaggle
+chmod 600 ~/.kaggle/kaggle.json
+```
 
 ---
 
-# 2. RSNA Pneumonia Detection Dataset (Chest X-Ray)
+# 1. BraTS 2021 — Brain Tumor Segmentation
 
-### Official Source
-RSNA Pneumonia Detection Challenge (Kaggle)  
-https://www.kaggle.com/c/rsna-pneumonia-detection-challenge
+### 📥 Download Command (Used by Member 6)
 
-### Usage in SPECTRA
-- Used by the **Chest Imaging Pipeline**  
-- Enables pneumonia classification and report score generation  
-- Contains DICOM images + pneumonia bounding boxes and labels
+```bash
+kaggle datasets download -d dschettler8845/brats-2021-task1
+```
 
-### License & Restrictions
-- Subject to Kaggle Terms of Service  
-- Academic use: ✔ Allowed  
-- Redistribution: ❌ Not allowed  
-- Commercial use: ❌ Not allowed
+This will download:
 
-### Required Citation
-> RSNA Pneumonia Detection Challenge, Radiological Society of North America.
+```
+brats-2021-task1.zip
+```
 
-### Notes
-- Raw `.dcm` images are kept locally; not included in the repository.  
-- Models trained on this dataset are allowed to be shared (not the raw data).
+### 📦 Extraction
+
+```bash
+unzip brats-2021-task1.zip -d brain
+```
+
+Then move contents into:
+
+```
+C:\Users\delta\DATASETS\SPECTRA\brain\
+```
+
+### (Large .tar extraction)
+
+After unzipping, extract the main training tar:
+
+```bash
+tar -xvf BraTS2021_Training_Data.tar -C C:\Users\delta\DATASETS\SPECTRA\brain
+```
 
 ---
 
-# 3. MURA v1.1 — Musculoskeletal Radiographs (Bone/Fracture)
+# 2. RSNA Pneumonia Detection — Chest X-Ray
 
-### Official Source
-Stanford ML Group  
-https://stanfordmlgroup.github.io/competitions/mura/
+### 📥 Download Command
 
-### Usage in SPECTRA
-- Used by the **Bone Imaging Pipeline**  
-- Supports fracture detection in regions like wrist, elbow, shoulder, etc.  
-- Provides labeled X-ray studies across 7 anatomical regions
+```bash
+kaggle competitions download -c rsna-pneumonia-detection-challenge
+```
 
-### License & Restrictions
-- Research & Educational License  
-- Academic use: ✔ Allowed  
-- Redistribution: ❌ Not allowed  
-- Commercial use: ❌ Not allowed
+This will download multiple zip files.
 
-### Required Citation
-> Rajpurkar et al., MURA: Large Dataset for Musculoskeletal Radiographs, arXiv.
+### 📦 Extraction
 
-### Notes
-- Only predictions, heatmaps, and diagnostics can appear in GitHub — never raw images.
+```bash
+unzip rsna-pneumonia-detection-challenge.zip -d chest
+```
+
+Move extracted files to:
+
+```
+C:\Users\delta\DATASETS\SPECTRA\rsna\
+```
+
+---
+
+# 3. MURA v1.1 — Bone/Fracture Dataset
+
+### 📥 Download Command
+
+```bash
+kaggle datasets download -d radiologist/mura-v11
+```
+
+This downloads:
+
+```
+MURA-v1.1.zip
+```
+
+### 📦 Extraction
+
+```bash
+unzip MURA-v1.1.zip -d MURA
+```
+
+Move folder to:
+
+```
+C:\Users\delta\DATASETS\SPECTRA\MURA-v1.1\
+```
 
 ---
 
 # 4. MedMNIST (Gatekeeper Data)
 
-### Official Source
-MedMNIST v2  
-https://medmnist.com/
+These datasets are downloaded using the **Python script written by Member 6**.
 
-### Usage in SPECTRA
-- Used by the **Gatekeeper/Categorizer**  
-- Helps classify input modality into:
-  - Chest (PneumoniaMNIST)
-  - Organ/Abdomen (OrganAMNIST)
-  - Bone (FractureMNIST3D)
+### 📜 Script Used
 
-### License & Restrictions
-- **CC BY 4.0** — most permissive dataset used
-- Academic use: ✔ Allowed  
-- Redistribution: ✔ Allowed (with attribution)  
-- Commercial use: ✔ Allowed (with attribution)
+```python
+import medmnist
+from medmnist import INFO
+import os
+from PIL import Image
+import numpy as np
 
-### Required Citation
-> Yang et al., MedMNIST v2: A Large-Scale Lightweight Benchmark for Biomedical Image Classification, Nature Scientific Data.
+OUTPUT_DIR = "data/gatekeeper"
+DATASETS = ['pneumoniamnist', 'organamnist', 'fracturemnist3d']
 
-### Notes
-- Only these small derived PNG samples are inside the repo.  
-- No licensing conflicts with including gatekeeper samples.
+# (script continues...)  # Full script is inside scripts/download_medmnist.py
+```
 
----
+Run it with:
 
-# Summary Table
+```bash
+python scripts/download_medmnist.py
+```
 
-| Dataset | Source | Academic Use | Redistribution | License |
-|--------|--------|--------------|----------------|---------|
-| BraTS 2021 | MICCAI | ✔ Allowed | ❌ No | Research Only |
-| RSNA Pneumonia | Kaggle | ✔ Allowed | ❌ No | Kaggle Terms |
-| MURA v1.1 | Stanford ML Group | ✔ Allowed | ❌ No | Research/Education |
-| MedMNIST | MedMNIST.org | ✔ Allowed | ✔ Yes | CC BY 4.0 |
+This generates 50 images per category into:
+
+```
+spectra-medical-ai/data/gatekeeper/
+```
 
 ---
 
-# Compliance Notes
-- No raw medical datasets are uploaded to GitHub.  
-- Only small, derived gatekeeper samples (MedMNIST) are included.  
-- All datasets are used strictly for academic research under fair-use guidelines.  
-- Every dataset used in SPECTRA requires proper citation in the final report.
+# 🔒 Licensing Summary
+
+| Dataset        | Source            | Academic Use | Redistribution | License            |
+| -------------- | ----------------- | ------------ | -------------- | ------------------ |
+| BraTS 2021     | MICCAI            | ✔ Allowed    | ❌ No           | Research Only      |
+| RSNA Pneumonia | Kaggle            | ✔ Allowed    | ❌ No           | Kaggle Terms       |
+| MURA v1.1      | Stanford ML Group | ✔ Allowed    | ❌ No           | Research/Education |
+| MedMNIST       | MedMNIST.org      | ✔ Allowed    | ✔ Yes          | CC BY 4.0          |
+
+---
+
+# 📝 Notes
+
+* Team members must **download datasets exactly as shown above** to maintain identical folder structures.
+* No raw imaging data should be committed to GitHub.
+* Only gatekeeper sample data (MedMNIST) is allowed inside the repository.
+* All datasets must be cited properly in the final report.
