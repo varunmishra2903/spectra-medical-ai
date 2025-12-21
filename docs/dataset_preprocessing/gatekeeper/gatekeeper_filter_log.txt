@@ -1,0 +1,60 @@
+GATEKEEPER SAMPLE FILTERING LOG
+
+
+=== BRAIN ===
+Path: data/gatekeeper/organamnist
+Threshold (nonzero ratio): 0.1
+
+Kept samples: 50
+Discarded samples: 0
+
+Examples kept:
+  sample_0.png | nonzero ratio = 0.9872
+  sample_1.png | nonzero ratio = 0.2908
+  sample_10.png | nonzero ratio = 0.5625
+  sample_11.png | nonzero ratio = 1.0000
+  sample_12.png | nonzero ratio = 0.9719
+
+Examples discarded:
+
+
+
+=== CHEST ===
+Path: data/gatekeeper/pneumoniamnist
+Threshold (nonzero ratio): 0.07
+
+Kept samples: 50
+Discarded samples: 0
+
+Examples kept:
+  sample_0.png | nonzero ratio = 0.9936
+  sample_1.png | nonzero ratio = 1.0000
+  sample_10.png | nonzero ratio = 1.0000
+  sample_11.png | nonzero ratio = 0.9974
+  sample_12.png | nonzero ratio = 1.0000
+
+Examples discarded:
+
+
+
+=== BONE ===
+Path: data/gatekeeper/fracturemnist3d
+Threshold (nonzero ratio): 0.05
+
+Kept samples: 45
+Discarded samples: 5
+
+Examples kept:
+  sample_0.png | nonzero ratio = 0.3980
+  sample_1.png | nonzero ratio = 0.1390
+  sample_10.png | nonzero ratio = 0.3597
+  sample_11.png | nonzero ratio = 0.2997
+  sample_12.png | nonzero ratio = 0.1020
+
+Examples discarded:
+
+sample_13.png, 0.0472
+sample_17.png, 0.0485
+sample_28.png, 0.0255
+sample_34.png, 0.0497
+sample_40.png, 0.0306
