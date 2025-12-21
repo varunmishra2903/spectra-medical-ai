@@ -1,0 +1,56 @@
+GATEKEEPER BONE FILTER LOG
+Threshold (nonzero ratio): 0.05
+
+KEPT FILES:
+sample_0.png, 0.3980
+sample_1.png, 0.1390
+sample_10.png, 0.3597
+sample_11.png, 0.2997
+sample_12.png, 0.1020
+sample_14.png, 0.3176
+sample_15.png, 0.2105
+sample_16.png, 0.0574
+sample_18.png, 0.2653
+sample_19.png, 0.3176
+sample_2.png, 0.2653
+sample_20.png, 0.1505
+sample_21.png, 0.1339
+sample_22.png, 0.2181
+sample_23.png, 0.0995
+sample_24.png, 0.4311
+sample_25.png, 0.1020
+sample_26.png, 0.5434
+sample_27.png, 0.1403
+sample_29.png, 0.0753
+sample_3.png, 0.1186
+sample_30.png, 0.0587
+sample_31.png, 0.0727
+sample_32.png, 0.1773
+sample_33.png, 0.1250
+sample_35.png, 0.2092
+sample_36.png, 0.2041
+sample_37.png, 0.1543
+sample_38.png, 0.0753
+sample_39.png, 0.1276
+sample_4.png, 0.5370
+sample_41.png, 0.0804
+sample_42.png, 0.4145
+sample_43.png, 0.5026
+sample_44.png, 0.2143
+sample_45.png, 0.3393
+sample_46.png, 0.0791
+sample_47.png, 0.1607
+sample_48.png, 0.0523
+sample_49.png, 0.2143
+sample_5.png, 0.4936
+sample_6.png, 0.2334
+sample_7.png, 0.4362
+sample_8.png, 0.3610
+sample_9.png, 0.2691
+
+DISCARDED FILES:
+sample_13.png, 0.0472
+sample_17.png, 0.0485
+sample_28.png, 0.0255
+sample_34.png, 0.0497
+sample_40.png, 0.0306
