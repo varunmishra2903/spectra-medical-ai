@@ -1,0 +1,6 @@
+kotlin
+data/
+processed/
+*.png
+*.nii.gz
+*.dcm
