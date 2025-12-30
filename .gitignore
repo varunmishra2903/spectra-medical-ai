@@ -1,0 +1,27 @@
+
+
+
+# Python junk
+__pycache__/
+*.pyc
+
+# Virtual environment (NEVER COMMIT)
+venv/
+
+# Runtime & data
+runtime/
+data/
+
+# Model weights
+*.pth
+*.pt
+*.ckpt
+node_modules
+.DS_Store
+
+kotlin
+data/
+processed/
+*.png
+*.nii.gz
+*.dcm
